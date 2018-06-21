@@ -34,5 +34,10 @@ public class TaskButtonSetupTimer : MonoBehaviour
 
     }
     
+    // destroy/ strike off task when task is done
+    public void DestroyTask()
+    {
+
+    }
 
 }

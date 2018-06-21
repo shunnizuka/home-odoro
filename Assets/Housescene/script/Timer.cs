@@ -85,6 +85,7 @@ public class Timer : MonoBehaviour {
     {
         timerendedPanel.SetActive(true);
         datatime.Updatehour(totaltime);
+        datatime.DisplayTotaltimeText();
     }
 
     public void Endtimer()
