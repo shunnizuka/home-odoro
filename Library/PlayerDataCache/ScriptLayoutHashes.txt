@@ -2,7 +2,8 @@ Android
 PlayerPath?
 C:/Users/Shune/Documents/Orbital Project/prototype 1/Homeodoro(1)/Homeodoro(1).apk
 SceneListBegin?
-Assets/Housescene/HouseScene.unity
+Assets/CharacterCustomisation.unity
+Assets/HouseScene.unity
 SceneListEnd?
 28144fc234708003731dabfd1b4f44bf Assembly-CSharp.dll:.Scroll_View
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
@@ -109,6 +110,8 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 512911291d6c4066c5f7d83603f3c725 Assembly-CSharp.dll:.SaveInput
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TaskButtonSetupTimer
+9e8fe3e9f9be36581c1095514d197ef4 Assembly-CSharp.dll:.Timer
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -138,6 +141,7 @@ f02726adeff0a3ec5905565234b372da UnityEngine.TestRunner.dll:UnityEngine.TestTool
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
+2c22d3b655a89e9a2c4507cbcc56b85a Assembly-CSharp.dll:.FeatureManager
 9e0ef5bf862444b5dc48b5a99554ce7c UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
@@ -150,5 +154,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 175c78ae04dd65915722c3b99c8b9ad3 Assembly-CSharp.dll:.PlayerController
 60bc090cc6f7757206e832558aa324dd Assembly-CSharp.dll:.OpenPlannerPanel
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TaskButtonSetupTimer
-c492002d2639278d345d887401eb3399 Assembly-CSharp.dll:.Timer
+e9e9dff7a8581a97b570be1b9ea0de39 Assembly-CSharp.dll:.Data
+e19cace128949d0363ad98f2a638b0e1 Assembly-CSharp.dll:.UIManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CharacterInfo
+33227001ac3cb2e0369b605ca6cae863 Assembly-CSharp.dll:.GotoHouseScene

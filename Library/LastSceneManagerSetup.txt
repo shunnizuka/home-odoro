@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Housescene/HouseScene.unity
+- path: Assets/CharacterCustomisation.unity
   isLoaded: 1
   isActive: 1
