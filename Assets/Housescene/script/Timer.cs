@@ -42,7 +42,6 @@ public class Timer : MonoBehaviour {
     //count down and update the timer text
     private void Update()
     {
-
         if (!paused)
         {
             countdown -= Time.deltaTime;

@@ -61,11 +61,10 @@
   <ItemGroup>
     <Compile Include="Assets\CharacterCustomisationscene\script\CharacterInfo.cs" />
     <Compile Include="Assets\CharacterCustomisationscene\script\FeatureManager.cs" />
-    <Compile Include="Assets\CharacterCustomisationscene\script\GotoHouseScene.cs" />
+    <Compile Include="Assets\CharacterCustomisationscene\script\Scenemanager.cs" />
     <Compile Include="Assets\CharacterCustomisationscene\script\UIManager.cs" />
     <Compile Include="Assets\Housescene\script\changescene.cs" />
     <Compile Include="Assets\Housescene\script\Data.cs" />
-    <Compile Include="Assets\Housescene\script\DontdestroyPlanner.cs" />
     <Compile Include="Assets\Housescene\script\OpenPlannerPanel.cs" />
     <Compile Include="Assets\Housescene\script\PinchZoom.cs" />
     <Compile Include="Assets\Housescene\script\PlayerController.cs" />
@@ -73,6 +72,9 @@
     <Compile Include="Assets\Housescene\script\Scroll_View.cs" />
     <Compile Include="Assets\Housescene\script\TaskButtonSetupTimer.cs" />
     <Compile Include="Assets\Housescene\script\Timer.cs" />
+    <Compile Include="Assets\ShopScene\Script\CharacterAppearance.cs" />
+    <Compile Include="Assets\ShopScene\Script\disableCharacterMove.cs" />
+    <Compile Include="Assets\ShopScene\Script\TogglePanels.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Shune/Documents/Orbital Project/prototype 1/Homeodoro(1)/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

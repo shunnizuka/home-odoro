@@ -14,40 +14,14 @@ public class UIManager : MonoBehaviour {
     public Button top;
     public Button bottom;
 
-    //color options
-    public Color black;
-    public Color yellow;
-    public Color brown;
-    public Color red;
-    public Color blue;
-    public Color pink;
-    private List<Color> colors;
-    private int colorindex = 0;
-
     // Use this for initialization
-	void Start () {
+    void Start()
+    {
         mgr = FindObjectOfType<FeatureManager>();
         descText = transform.Find("Navigation").Find("Text").GetComponent<Text>();
         transform.Find("Navigation").Find("Previous").GetComponent<Button>().onClick.AddListener(() => mgr.PreviousChoice());
         transform.Find("Navigation").Find("Next").GetComponent<Button>().onClick.AddListener(() => mgr.NextChoice());
         InitialiseBtnlist();
-        InitialiseColor();
-    }
-
-    void InitialiseColor() {
-        colors = new List<Color>();
-        colors.Add(black);
-        colors.Add(yellow);
-        colors.Add(brown);
-        colors.Add(red);
-        colors.Add(blue);
-        colors.Add(pink);
-    }
-
-    public void UpdateColor(int index)
-    {
-        colorindex = index;
-        mgr.features[mgr.currFeature].SetColor(colors[colorindex]);
     }
 
     void UpdateFeatureButton()

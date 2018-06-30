@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GotoHouseScene : MonoBehaviour {
+public class Scenemanager : MonoBehaviour {
 
     public GameObject character;
 
@@ -11,5 +11,10 @@ public class GotoHouseScene : MonoBehaviour {
     {
         SceneManager.LoadScene(1);
         character.GetComponent<Rigidbody2D>().simulated = true;
+    }
+
+    public void GotoShop( )
+    {
+        SceneManager.LoadScene(2);
     }
 }
