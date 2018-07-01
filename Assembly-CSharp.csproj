@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{E07D54BB-780E-F027-7C79-54C99D4C3671}</ProjectGuid>
+    <ProjectGuid>{457DCFC6-B54E-793B-4A3D-2583074FD127}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -65,10 +65,12 @@
     <Compile Include="Assets\CharacterCustomisationscene\script\UIManager.cs" />
     <Compile Include="Assets\Housescene\script\changescene.cs" />
     <Compile Include="Assets\Housescene\script\Data.cs" />
+    <Compile Include="Assets\Housescene\script\OpenBreakPanel.cs" />
     <Compile Include="Assets\Housescene\script\OpenPlannerPanel.cs" />
     <Compile Include="Assets\Housescene\script\PinchZoom.cs" />
     <Compile Include="Assets\Housescene\script\PlayerController.cs" />
-    <Compile Include="Assets\Housescene\script\SaveInput.cs" />
+    <Compile Include="Assets\Housescene\script\SaveBreakInput.cs" />
+    <Compile Include="Assets\Housescene\script\SaveTaskInput.cs" />
     <Compile Include="Assets\Housescene\script\Scroll_View.cs" />
     <Compile Include="Assets\Housescene\script\TaskButtonSetupTimer.cs" />
     <Compile Include="Assets\Housescene\script\Timer.cs" />
@@ -76,10 +78,10 @@
     <Compile Include="Assets\ShopScene\Script\disableCharacterMove.cs" />
     <Compile Include="Assets\ShopScene\Script\TogglePanels.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Shune/Documents/Orbital Project/prototype 1/Homeodoro(1)/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Sivakumar/Documents/NUS/Orbital/home-odoro 1.2/home-odoro/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Shune/Documents/Orbital Project/prototype 1/Homeodoro(1)/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Sivakumar/Documents/NUS/Orbital/home-odoro 1.2/home-odoro/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -271,13 +273,13 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/Shune/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/Sivakumar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/Shune/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/Sivakumar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/Shune/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Sivakumar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

@@ -8,7 +8,6 @@ public class CharacterAppearance : MonoBehaviour {
 
     private bool atShop = true;
 
-    //
     private FeatureManager shop;
     private FeatureManager wardrobe;
 
@@ -40,7 +39,7 @@ public class CharacterAppearance : MonoBehaviour {
     void InitialiseBtnlist()
     {
         buttons = new List<Button>();
-        hair.onClick.AddListener(() => shop.SetCurrent(2));
+        hair.onClick.AddListener(() => wardrobe.SetCurrent(0));
         buttons.Add(hair);
         top.onClick.AddListener(() => shop.SetCurrent(0));
         buttons.Add(top);

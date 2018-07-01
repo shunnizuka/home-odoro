@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour {
     private float countdown;
     public Text timertext;
     private bool paused = true;
+    private bool isTask = true;
 
     //to change pause button sprite
     public Sprite pauseSprite;
@@ -83,8 +84,11 @@ public class Timer : MonoBehaviour {
     private void ContinueOrEnd()
     {
         timerendedPanel.SetActive(true);
-        datatime.Updatehour(totaltime);
-        datatime.DisplayTotaltimeText();
+        if (isTask) {
+            datatime.Updatehour(totaltime);
+            datatime.DisplayTotaltimeText();
+
+        }
     }
 
     public void Endtimer()
@@ -92,5 +96,10 @@ public class Timer : MonoBehaviour {
         timerendedPanel.SetActive(false);
         this.gameObject.SetActive(false);
         Debug.Log("close timer panel");
+    }
+
+    public void SetboolTask(bool istask)
+    {
+        isTask = istask;
     }
 }

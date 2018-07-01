@@ -22,7 +22,7 @@ public class Scroll_View : MonoBehaviour {
             newButton.transform.Find("hour").GetComponentInChildren<Text>().text = "Time: " + time + " hours    ";
             newButton.transform.SetParent(field.transform, false);
 
-            Debug.Log("Entered" + task + "display");
+            Debug.Log("Entered" + task + "display and button made");
             ButtonMade = false;
         }
     }

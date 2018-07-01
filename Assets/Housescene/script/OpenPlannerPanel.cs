@@ -8,6 +8,7 @@ public class OpenPlannerPanel : MonoBehaviour
 
     public GameObject PlannerPanel = null;
     private bool panelopened = false;
+    public Timer timer;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class OpenPlannerPanel : MonoBehaviour
         if(PlannerPanel != null)
         {
             PlannerPanel.SetActive(panelopened);
+            timer.SetboolTask(true);
             Debug.Log("planner open");
         }
     }

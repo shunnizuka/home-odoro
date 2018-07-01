@@ -13,12 +13,21 @@ public class TogglePanels : MonoBehaviour {
     {
         topPanel.SetActive(true);
         bottomPanel.SetActive(false);
+        hairPanel.SetActive(false);
     }
 
     public void OpenbottomPanel()
     {
         bottomPanel.SetActive(true);
         topPanel.SetActive(false);
+        hairPanel.SetActive(false);
+    }
+
+    public void OpenHairPanel()
+    {
+        hairPanel.SetActive(true);
+        topPanel.SetActive(false);
+        bottomPanel.SetActive(false);
     }
 
 }
