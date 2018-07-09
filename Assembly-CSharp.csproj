@@ -65,6 +65,7 @@
     <Compile Include="Assets\CharacterCustomisationscene\script\UIManager.cs" />
     <Compile Include="Assets\Housescene\script\changescene.cs" />
     <Compile Include="Assets\Housescene\script\Data.cs" />
+    <Compile Include="Assets\Housescene\script\DonotDestroyHours.cs" />
     <Compile Include="Assets\Housescene\script\OpenBreakPanel.cs" />
     <Compile Include="Assets\Housescene\script\OpenPlannerPanel.cs" />
     <Compile Include="Assets\Housescene\script\PinchZoom.cs" />

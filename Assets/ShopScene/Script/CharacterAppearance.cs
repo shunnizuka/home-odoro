@@ -118,12 +118,10 @@ public class CharacterAppearance : MonoBehaviour
         {
             wardrobeBtn.image.sprite = shopSprite;
             buttonText.text = "Shop";
-            //toggle.OpenWardrobeTopPanel();
             shopMgr.SetCurrent(0);
             for (int i = 0; i < shopMgr.features.Count; i++)
             {
                 shopMgr.features[i].ID = shopMgr.features[i].ID.Replace("shop_", "");
-               // shopMgr.features[i].SetFeatureID(id + shopMgr.features[i].ID);
                 Debug.Log("ID " + shopMgr.features[i].ID);
             }
         }
