@@ -18,6 +18,12 @@ public class FeatureManager : MonoBehaviour
     public List<Color> colors;
     private int colorindex = 0;
 
+    public FeatureManager(List<Feature> featurelist, List<Color> colorlist)
+    {
+        features = featurelist;
+        colors = colorlist;
+    }
+       
     void InitialiseColor()
     {
         colors = new List<Color>();
@@ -36,6 +42,11 @@ public class FeatureManager : MonoBehaviour
         features[currFeature].renderer.color = colors[index2];
     }
 
+    public Color Getcolor(int index)
+    {
+        return colors[index];
+    }
+
     private void OnEnable()
     {
         LoadFeature();
@@ -43,10 +54,20 @@ public class FeatureManager : MonoBehaviour
 
     private void OnDisable()
     {
+       SaveFeature();
+    }
+
+    private void OnApplicationQuit()
+    {
         SaveFeature();
     }
 
-    void LoadFeature()
+    private void Start()
+    {
+        LoadFeature();
+    }
+
+    public void LoadFeature()
     {
         features = new List<Feature>();
         features.Add(new Feature("hair", transform.Find("hair").GetComponent<SpriteRenderer>()));
@@ -67,9 +88,9 @@ public class FeatureManager : MonoBehaviour
         }
     }
 
-    void SaveFeature()
+    public void SaveFeature()
     {
-        for (int i = 0; i < features.Count; i++)
+        for (int i = 0; i < this.features.Count; i++)
         {
             string key = "FEATURE_" + i;
             string keycolor = "FEATURE_" + i + "color";
@@ -77,6 +98,19 @@ public class FeatureManager : MonoBehaviour
             PlayerPrefs.SetInt(keycolor, features[i].colorIndex);
         }
         PlayerPrefs.Save();
+    }
+
+    public void LoadFeaturepublic()
+    {
+        for (int i = 0; i < features.Count; i++)
+        {
+            string key = "FEATURE_" + i;
+            string keycolor = "FEATURE_" + i + "color";
+            features[i].currIndex = PlayerPrefs.GetInt(key);
+            features[i].colorIndex = PlayerPrefs.GetInt(keycolor);
+            features[i].UpdateFeature();
+            features[i].renderer.color = colors[features[i].colorIndex];
+        }
     }
 
     public void SetCurrent(int index)
@@ -122,16 +156,21 @@ public class Feature
     public SpriteRenderer renderer;
     public int colorIndex;
 
+    public void SetFeatureID (string id)
+    {
+        ID = id;
+    }
     public Feature(string id, SpriteRenderer rend)
     {
         ID = id;
         renderer = rend;
-        //UpdateFeature();
+       // UpdateFeature();
     }
 
     public void UpdateFeature ()
     {
         choices = Resources.LoadAll<Sprite>("Textures/" + ID);
+        Debug.Log("ID =" + ID);
 
         if(choices == null)
         {
@@ -148,6 +187,8 @@ public class Feature
         if (currIndex >= choices.Length)
             currIndex = 0;
 
+        Debug.Log(choices.Length);
+        Debug.Log(currIndex);
         renderer.sprite = choices[currIndex];
     }
 
@@ -156,4 +197,3 @@ public class Feature
         colorIndex = index;
     }
 }
-

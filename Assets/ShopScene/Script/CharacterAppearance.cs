@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
-public class CharacterAppearance : MonoBehaviour {
+public class CharacterAppearance : MonoBehaviour
+{
+    public static bool atShop = true;
 
-    private bool atShop = true;
-
-    private FeatureManager shop;
-    private FeatureManager wardrobe;
+    private FeatureManager shopMgr;
 
     //navigation buttons
     private List<Button> buttons;
@@ -24,51 +24,139 @@ public class CharacterAppearance : MonoBehaviour {
     public Text buttonText;
     public Button wardrobeBtn;
 
-    private void Start()
-    { 
-       shop = FindObjectOfType<FeatureManager>();
-       shop.features = new List<Feature>();
-       GameObject character = GameObject.Find("Character");
-       shop.features.Add(new Feature("shop_top", character.transform.Find("Top").GetComponent<SpriteRenderer>()));
-       shop.features.Add(new Feature("shop_bottom", character.transform.Find("bottom").GetComponent<SpriteRenderer>()));
+    //hair shop items to change color
+    public Button button1;
+    public Button button2;
+    public Button button3;
+    public Button button4;
+    public Button button5;
 
-       wardrobe = FindObjectOfType<FeatureManager>();
-       InitialiseBtnlist();
+    public TogglePanels toggle;
+    public GenerateShopItems generate;
+
+    private void Start()
+    {
+        shopMgr = FindObjectOfType<FeatureManager>();
+        // shopMgr.LoadFeature();
+        List<Feature> features = new List<Feature>();
+        GameObject character = GameObject.Find("Character");
+        features.Add(new Feature("top", character.transform.Find("Top").GetComponent<SpriteRenderer>()));
+        features.Add(new Feature("bottom", character.transform.Find("bottom").GetComponent<SpriteRenderer>()));
+        features.Add(new Feature("hair", character.transform.Find("hair").GetComponent<SpriteRenderer>()));
+        shopMgr = new FeatureManager(features, shopMgr.colors);
+
+        UpdateShopOrWardrobe("shop_");
+
+        button1.GetComponent<Image>().color = shopMgr.features[2].renderer.color;
+        button2.GetComponent<Image>().color = shopMgr.features[2].renderer.color;
+        button3.GetComponent<Image>().color = shopMgr.features[2].renderer.color;
+        button4.GetComponent<Image>().color = shopMgr.features[2].renderer.color;
+        button5.GetComponent<Image>().color = shopMgr.features[2].renderer.color;
+
+        InitialiseBtnlist();
     }
 
     void InitialiseBtnlist()
     {
         buttons = new List<Button>();
-        hair.onClick.AddListener(() => wardrobe.SetCurrent(0));
+        hair.onClick.AddListener(() => shopMgr.SetCurrent(2));
         buttons.Add(hair);
-        top.onClick.AddListener(() => shop.SetCurrent(0));
+        top.onClick.AddListener(() => shopMgr.SetCurrent(0));
         buttons.Add(top);
-        bottom.onClick.AddListener(() => shop.SetCurrent(1));
+        bottom.onClick.AddListener(() => shopMgr.SetCurrent(1));
         buttons.Add(bottom);
     }
 
     public void UpdateChoice(int index)
     {
-        shop.SetChoice(index);
-        shop.features[shop.currFeature].renderer.color = new Color(1, 1, 1);
+        shopMgr.SetChoice(index);
+        Debug.Log("choice updated to = " + index);
+        if (atShop)
+        {
+            shopMgr.features[shopMgr.currFeature].renderer.color = new Color(1, 1, 1);
+        }
+        else
+        {
+           // mgr.SetChoice(index);
+            if (shopMgr.currFeature == 1)
+            {
+                shopMgr.features[shopMgr.currFeature].renderer.color = new Color(0, 0, 0, 1);
+            }
+        }
+    }
+
+
+    public void UpdateColorforHair(int index)
+    {
+        shopMgr.UpdateColor(index);
+        button1.GetComponent<Image>().color = shopMgr.Getcolor(index);
+        button2.GetComponent<Image>().color = shopMgr.Getcolor(index);
+        button3.GetComponent<Image>().color = shopMgr.Getcolor(index);
+        button4.GetComponent<Image>().color = shopMgr.Getcolor(index);
+        button5.GetComponent<Image>().color = shopMgr.Getcolor(index);
     }
 
     private void Update()
     {
-        EventSystem.current.SetSelectedGameObject(buttons[shop.currFeature].gameObject);
+        EventSystem.current.SetSelectedGameObject(buttons[shopMgr.currFeature].gameObject);
     }
 
     public void ToggleWardrobeBtn()
     {
         atShop = !atShop;
-        if(atShop)
+        if (atShop)
         {
             wardrobeBtn.image.sprite = wardrobeSprite;
             buttonText.text = "Wardrobe";
-        } else
+            //toggle.OpentopPanel();
+            shopMgr.SetCurrent(0);
+            //InitialiseBtnlist();
+            UpdateShopOrWardrobe("shop_");
+           
+        }
+        else
         {
             wardrobeBtn.image.sprite = shopSprite;
             buttonText.text = "Shop";
+            //toggle.OpenWardrobeTopPanel();
+            shopMgr.SetCurrent(0);
+            for (int i = 0; i < shopMgr.features.Count; i++)
+            {
+                shopMgr.features[i].ID = shopMgr.features[i].ID.Replace("shop_", "");
+               // shopMgr.features[i].SetFeatureID(id + shopMgr.features[i].ID);
+                Debug.Log("ID " + shopMgr.features[i].ID);
+            }
         }
+    }
+
+    public void Save()
+    {
+        shopMgr.SaveFeature();
+    }
+
+    public void UpdateShopOrWardrobe (string id)
+    {
+        for (int i = 0; i < shopMgr.features.Count; i++)
+        {
+            shopMgr.features[i].SetFeatureID(id + shopMgr.features[i].ID);
+            Debug.Log("ID " + shopMgr.features[i].ID);
+        }
+    }
+
+    public void SetIDforItems ()
+    {
+        generate.SetFeatureID(shopMgr.features[shopMgr.currFeature].ID);
+        Debug.Log("Set to = " + shopMgr.currFeature);
+    }
+
+    public void setCurrentFeature (int current)
+    {
+        shopMgr.currFeature = current;
+    }
+
+    public void GoBackHouse()
+    {
+        SceneManager.LoadScene(1);
+        //Debug.Log("count" + wardrobe.features.Count);
     }
 }
