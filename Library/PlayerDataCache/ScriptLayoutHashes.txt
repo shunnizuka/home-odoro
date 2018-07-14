@@ -20,6 +20,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 607d64d2c4bc76ac9876e6f7b9cc7edf UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 bf0fde45eeb0c3d1d4c94608e78acb30 Assembly-CSharp.dll:.SaveBreakInput
+2fbb449f7333cf21df250639765e7aab Assembly-CSharp.dll:.GenerateShopItems
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.changescene
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -122,9 +123,11 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+3e6a37e46f4fe96854d3ee601033ae01 Assembly-CSharp.dll:.PurchaseStatus
 939871c0c7b2a577a9b088d559023ea5 Assembly-CSharp.dll:.OpenBreakPanel
 33227001ac3cb2e0369b605ca6cae863 Assembly-CSharp.dll:.Scenemanager
 8f8c023f294d21221083062d5a287ba3 Assembly-CSharp.dll:.UIManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DonotDestroyHours
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -161,7 +164,6 @@ d5bf502ede24305265e17c7d7f606848 Assembly-CSharp.dll:.CharacterInfo
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 175c78ae04dd65915722c3b99c8b9ad3 Assembly-CSharp.dll:.PlayerController
 2dd03042bec60dbbc91cefafba567ea7 Assembly-CSharp.dll:.OpenPlannerPanel
-812116a5a005bd34105b667acb06c5ab Assembly-CSharp.dll:.TogglePanels
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.disableCharacterMove
 e9e9dff7a8581a97b570be1b9ea0de39 Assembly-CSharp.dll:.Data
-3dc962cd9fb4eea1016f7a850355c249 Assembly-CSharp.dll:.CharacterAppearance
+4d0646bcb694a4e8ed80448ce76825bf Assembly-CSharp.dll:.CharacterAppearance

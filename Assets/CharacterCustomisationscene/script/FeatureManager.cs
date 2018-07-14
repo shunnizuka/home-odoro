@@ -126,16 +126,36 @@ public class FeatureManager : MonoBehaviour
     {
         if (features == null)
             return;
-        features[currFeature].currIndex++;
-        features[currFeature].UpdateFeature();
+
+        Debug.Log("Maxchoice = " + features[currFeature].Maxchoice());
+        if (features[currFeature].currIndex >= features[currFeature].Maxchoice())
+        {
+            Debug.Log("exceeded choice");
+            features[currFeature].currIndex = 0;
+            features[currFeature].UpdateFeature();
+        }
+        else
+        {
+            features[currFeature].currIndex++;
+            features[currFeature].UpdateFeature();
+        }
     }
 
     public void PreviousChoice ()
     {
         if (features == null)
             return;
-        features[currFeature].currIndex--;
-        features[currFeature].UpdateFeature();
+
+        if (features[currFeature].currIndex <= 0)
+        {
+            features[currFeature].currIndex = features[currFeature].Maxchoice();
+            features[currFeature].UpdateFeature();
+        }
+        else
+        {
+            features[currFeature].currIndex--;
+            features[currFeature].UpdateFeature();
+        }
     }
 
     public void SetChoice(int index1)
@@ -182,14 +202,24 @@ public class Feature
             return;
         }
 
+        Debug.Log("currIndex = " + currIndex);
         if (currIndex < 0)
             currIndex = choices.Length - 1;
         if (currIndex >= choices.Length)
             currIndex = 0;
-
-        Debug.Log(choices.Length);
-        Debug.Log(currIndex);
+        
         renderer.sprite = choices[currIndex];
+    }
+
+   public int Maxchoice()
+    {
+        if (ID.Contains("top"))
+            return 0;
+        if (ID.Contains("bottom"))
+            return 1;
+        if (ID.Contains("hair"))
+            return 4;
+        return 0;
     }
 
     public void SetColor(int index)

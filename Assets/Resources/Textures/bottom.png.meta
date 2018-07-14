@@ -2,8 +2,10 @@ fileFormatVersion: 2
 guid: 9d94978495f5b7f4188ecab1926c46ca
 TextureImporter:
   fileIDToRecycleName:
-    21300000: bottom sprite_0
-    21300002: bottom sprite_1
+    21300000: bottom_0
+    21300002: bottom_1
+    21300004: bottom_2
+    21300006: bottom_3
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -95,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bottom sprite_0
+      name: bottom_0
       rect:
         serializedVersion: 2
         x: 69
@@ -103,19 +105,19 @@ TextureImporter:
         width: 135
         height: 103
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e712ce05ca112124e83d82eca0d128a5
+      spriteID: 7251c1f4b10babf4aa839a4543a36154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bottom sprite_1
+      name: bottom_1
       rect:
         serializedVersion: 2
         x: 280
@@ -123,13 +125,53 @@ TextureImporter:
         width: 162
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eef66a9789dd90842a2a8496ae16ea27
+      spriteID: 948fea25811123642a90129342e05fa4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bottom_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 316
+        width: 174
+        height: 109
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42449167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c7c8e130f9587498748ead08175203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bottom_3
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 251
+        width: 130
+        height: 174
+      alignment: 9
+      pivot: {x: 0.51266223, y: 0.6892069}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763bcb33a2f61ac4b87afad5a868fd21
       vertices: []
       indices: 
       edges: []
@@ -137,7 +179,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: febe7a43735b6594e88d539145b27428
+    spriteID: f846f0a8d6f86e6469974765213b3955
     vertices: []
     indices: 
     edges: []

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterAppearance : MonoBehaviour
 {
-    public static bool atShop = true;
+    public bool atShop = true;
 
     public FeatureManager shopMgr;
 
@@ -24,7 +24,6 @@ public class CharacterAppearance : MonoBehaviour
     public Text buttonText;
     public Button wardrobeBtn;
 
-    public TogglePanels toggle;
     public GenerateShopItems generate;
 
     private void Start()
@@ -38,7 +37,6 @@ public class CharacterAppearance : MonoBehaviour
         features.Add(new Feature("hair", character.transform.Find("hair").GetComponent<SpriteRenderer>()));
         shopMgr = new FeatureManager(features, shopMgr.colors);
 
-        UpdateShopOrWardrobe("shop_");
         InitialiseBtnlist();
     }
 
@@ -57,16 +55,11 @@ public class CharacterAppearance : MonoBehaviour
     {
         shopMgr.SetChoice(index);
         Debug.Log("choice updated to = " + index);
-        if (atShop && (shopMgr.currFeature != 2))
+        
+        //set color to white, excluding the hair
+        if (shopMgr.currFeature != 2)
         {
-            shopMgr.features[shopMgr.currFeature].renderer.color = new Color(1, 1, 1);
-        }
-        else
-        {
-            if (shopMgr.currFeature == 1)
-            {
-                shopMgr.features[shopMgr.currFeature].renderer.color = new Color(0, 0, 0, 1);
-            }
+            shopMgr.features[shopMgr.currFeature].renderer.color = Color.white;
         }
     }
 
@@ -93,7 +86,6 @@ public class CharacterAppearance : MonoBehaviour
         {
             wardrobeBtn.image.sprite = wardrobeSprite;
             buttonText.text = "Wardrobe";
-            UpdateShopOrWardrobe("shop_");
             generate.SetFeatureID(shopMgr.features[shopMgr.currFeature].ID);
             generate.GenerateItems();
             if (shopMgr.currFeature == 2)
@@ -108,11 +100,6 @@ public class CharacterAppearance : MonoBehaviour
         {
             wardrobeBtn.image.sprite = shopSprite;
             buttonText.text = "Shop";
-            for (int i = 0; i < shopMgr.features.Count; i++)
-            {
-                shopMgr.features[i].ID = shopMgr.features[i].ID.Replace("shop_", "");
-                Debug.Log("ID " + shopMgr.features[i].ID);
-            }
             generate.SetFeatureID(shopMgr.features[shopMgr.currFeature].ID);
             generate.GenerateItems();
             if (shopMgr.currFeature == 2)
@@ -130,7 +117,7 @@ public class CharacterAppearance : MonoBehaviour
         shopMgr.SaveFeature();
     }
 
-    public void UpdateShopOrWardrobe (string id)
+   /* public void UpdateShopOrWardrobe (string id)
     {
         for (int i = 0; i < shopMgr.features.Count; i++)
         {
@@ -138,6 +125,7 @@ public class CharacterAppearance : MonoBehaviour
             Debug.Log("ID " + shopMgr.features[i].ID);
         }
     }
+    */
 
     public void SetIDforItems ()
     {

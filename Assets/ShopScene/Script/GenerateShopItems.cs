@@ -31,9 +31,10 @@ public class GenerateShopItems : MonoBehaviour {
         FeatureId = id;
     }
 
-	public void GenerateItems ()
+	public void GenerateItems()
     {
         itemImages = Resources.LoadAll<Sprite>("Textures/" + FeatureId);
+        Debug.Log(itemImages.Length);
 
         if (oldpanel != null) {
             Debug.Log("found item");
@@ -55,34 +56,53 @@ public class GenerateShopItems : MonoBehaviour {
 
         hairbtns = new List<GameObject>();
         //generate the shop items
-        for ( int i = 0; i < itemImages.Length; i++)
+        for (int i = 0; i < itemImages.Length; i++)
         {
-            GameObject newitem = Instantiate(Shopitem) as GameObject;
-            newitem.transform.Find("clotheBtn").GetComponent<Image>().sprite = itemImages[i];
-
-            int index = i;
-            newitem.transform.Find("clotheBtn").GetComponent<Button>().onClick.AddListener(() => appearance.UpdateChoice(index));
-
-            newitem.transform.Find("BuyButton").GetComponent<Button>().onClick.AddListener(() => {
-                Destroy(newitem);
-                status.Purchased(FeatureId, index);
-            });
-            newitem.transform.SetParent(newpanel.transform, false);
-
-            //collate and initialise the color (only for hair button)
-            if (FeatureId.Contains("hair"))
+    
+            if (appearance.atShop && !status.CheckStatus(FeatureId, i))
             {
-                newitem.transform.Find("clotheBtn").GetComponent<Image>().color = appearance.shopMgr.features[2].renderer.color;
-                hairbtns.Add(newitem);
+                int index = i;
+                GameObject newitem = Instantiate(Shopitem) as GameObject;
+                newitem.transform.Find("clotheBtn").GetComponent<Image>().sprite = itemImages[i];
+
+
+                newitem.transform.Find("clotheBtn").GetComponent<Button>().onClick.AddListener(() => appearance.UpdateChoice(index));
+
+                newitem.transform.Find("BuyButton").GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    Destroy(newitem);
+                    status.Purchased(FeatureId, index);
+                });
+                newitem.transform.SetParent(newpanel.transform, false);
+
+                //collate and initialise the color (only for hair button)
+                if (FeatureId.Contains("hair"))
+                {
+                    newitem.transform.Find("clotheBtn").GetComponent<Image>().color = appearance.shopMgr.features[2].renderer.color;
+                    hairbtns.Add(newitem);
+                }
             }
+
+            if (!appearance.atShop && status.CheckStatus(FeatureId, i))
+            {
+                int index = i;
+                GameObject newitem = Instantiate(Wardrobeitem) as GameObject;
+                newitem.transform.Find("clotheBtn").GetComponent<Image>().sprite = itemImages[i];
+                newitem.transform.Find("clotheBtn").GetComponent<Button>().onClick.AddListener(() => appearance.UpdateChoice(index));
+
+                newitem.transform.SetParent(newpanel.transform, false);
+
+                //collate and initialise the color (only for hair button)
+                if (FeatureId.Contains("hair"))
+                {
+                    newitem.transform.Find("clotheBtn").GetComponent<Image>().color = appearance.shopMgr.features[2].renderer.color;
+                    hairbtns.Add(newitem);
+                }
+            }
+
         }
         Debug.Log("items created");
         oldpanel = newpanel;
-    }
-
-    public void GenerateShop()
-    {
-
     }
 
     public void OpenColourPanelHair()

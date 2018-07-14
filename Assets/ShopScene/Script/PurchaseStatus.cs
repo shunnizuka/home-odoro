@@ -39,6 +39,17 @@ public class PurchaseStatus : MonoBehaviour {
             shop.top.inventory[index].bought = true;
     }
 
+    public bool CheckStatus(string Id, int index)
+    {
+        if (Id.Contains("hair"))
+            return shop.hair.inventory[index].bought;
+        if (Id.Contains("bottom"))
+            return shop.bottom.inventory[index].bought;
+        if (Id.Contains("top"))
+            return shop.top.inventory[index].bought;
+        return false;
+    }
+
 }
 
 [System.Serializable]

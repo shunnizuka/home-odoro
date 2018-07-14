@@ -1,1 +1,35 @@
-{"top":{"inventory":[{"bought":false,"price":1.0},{"bought":false,"price":1.0},{"bought":false,"price":1.0},{"bought":false,"price":1.0}]},"bottom":{"inventory":[{"bought":false,"price":2.0},{"bought":false,"price":1.0}]},"hair":{"inventory":[{"bought":false,"price":1.0},{"bought":false,"price":1.0}]}}
+{"top":
+	{"inventory":[
+
+		{"bought" : true, "price" : 0.0},
+
+		{"bought":false,"price":1.0},
+		
+		{"bought":false,"price":1.0},
+		
+		{"bought":false,"price":1.0},
+		
+		{"bought":false,"price":1.0}
+		]
+},
+	"bottom":
+		{"inventory":[
+	
+			{"bought" : true, "price" : 0.0},
+			{"bought" : true, "price" : 0.0},
+			{"bought":false,"price":2.0},
+			{"bought":false,"price":1.0}]},
+	"hair":
+		{"inventory":[
+			
+			{"bought" : true, "price" : 0.0},
+			{"bought" : true, "price" : 0.0},
+			{"bought" : true, "price" : 0.0},
+			{"bought" : true, "price" : 0.0},
+			{"bought" : true, "price" : 0.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0}]}}
