@@ -9,7 +9,7 @@ public class CharacterAppearance : MonoBehaviour
 {
     public static bool atShop = true;
 
-    private FeatureManager shopMgr;
+    public FeatureManager shopMgr;
 
     //navigation buttons
     private List<Button> buttons;
@@ -24,20 +24,13 @@ public class CharacterAppearance : MonoBehaviour
     public Text buttonText;
     public Button wardrobeBtn;
 
-    //hair shop items to change color
-    public Button button1;
-    public Button button2;
-    public Button button3;
-    public Button button4;
-    public Button button5;
-
     public TogglePanels toggle;
     public GenerateShopItems generate;
 
     private void Start()
     {
         shopMgr = FindObjectOfType<FeatureManager>();
-        // shopMgr.LoadFeature();
+        
         List<Feature> features = new List<Feature>();
         GameObject character = GameObject.Find("Character");
         features.Add(new Feature("top", character.transform.Find("Top").GetComponent<SpriteRenderer>()));
@@ -46,13 +39,6 @@ public class CharacterAppearance : MonoBehaviour
         shopMgr = new FeatureManager(features, shopMgr.colors);
 
         UpdateShopOrWardrobe("shop_");
-
-        button1.GetComponent<Image>().color = shopMgr.features[2].renderer.color;
-        button2.GetComponent<Image>().color = shopMgr.features[2].renderer.color;
-        button3.GetComponent<Image>().color = shopMgr.features[2].renderer.color;
-        button4.GetComponent<Image>().color = shopMgr.features[2].renderer.color;
-        button5.GetComponent<Image>().color = shopMgr.features[2].renderer.color;
-
         InitialiseBtnlist();
     }
 
@@ -71,13 +57,12 @@ public class CharacterAppearance : MonoBehaviour
     {
         shopMgr.SetChoice(index);
         Debug.Log("choice updated to = " + index);
-        if (atShop)
+        if (atShop && (shopMgr.currFeature != 2))
         {
             shopMgr.features[shopMgr.currFeature].renderer.color = new Color(1, 1, 1);
         }
         else
         {
-           // mgr.SetChoice(index);
             if (shopMgr.currFeature == 1)
             {
                 shopMgr.features[shopMgr.currFeature].renderer.color = new Color(0, 0, 0, 1);
@@ -89,12 +74,12 @@ public class CharacterAppearance : MonoBehaviour
     public void UpdateColorforHair(int index)
     {
         shopMgr.UpdateColor(index);
-        button1.GetComponent<Image>().color = shopMgr.Getcolor(index);
-        button2.GetComponent<Image>().color = shopMgr.Getcolor(index);
-        button3.GetComponent<Image>().color = shopMgr.Getcolor(index);
-        button4.GetComponent<Image>().color = shopMgr.Getcolor(index);
-        button5.GetComponent<Image>().color = shopMgr.Getcolor(index);
-    }
+        for (int i = 0; i < generate.hairbtns.Count; i++)
+        {
+            Debug.Log(generate.hairbtns.Count);
+            generate.hairbtns[i].transform.Find("clotheBtn").GetComponent<Image>().color = shopMgr.Getcolor(index);
+        }
+}
 
     private void Update()
     {
@@ -108,22 +93,35 @@ public class CharacterAppearance : MonoBehaviour
         {
             wardrobeBtn.image.sprite = wardrobeSprite;
             buttonText.text = "Wardrobe";
-            //toggle.OpentopPanel();
-            shopMgr.SetCurrent(0);
-            //InitialiseBtnlist();
             UpdateShopOrWardrobe("shop_");
-           
+            generate.SetFeatureID(shopMgr.features[shopMgr.currFeature].ID);
+            generate.GenerateItems();
+            if (shopMgr.currFeature == 2)
+            {
+                generate.OpenColourPanelHair();
+                Debug.Log("called opencolor");
+            }
+            else
+                generate.CloseColourPanel(); 
         }
         else
         {
             wardrobeBtn.image.sprite = shopSprite;
             buttonText.text = "Shop";
-            shopMgr.SetCurrent(0);
             for (int i = 0; i < shopMgr.features.Count; i++)
             {
                 shopMgr.features[i].ID = shopMgr.features[i].ID.Replace("shop_", "");
                 Debug.Log("ID " + shopMgr.features[i].ID);
             }
+            generate.SetFeatureID(shopMgr.features[shopMgr.currFeature].ID);
+            generate.GenerateItems();
+            if (shopMgr.currFeature == 2)
+            {
+                generate.OpenColourPanelHair();
+                Debug.Log("called opencolor");
+            }
+            else
+                generate.CloseColourPanel();
         }
     }
 

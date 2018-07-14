@@ -78,6 +78,7 @@
     <Compile Include="Assets\ShopScene\Script\CharacterAppearance.cs" />
     <Compile Include="Assets\ShopScene\Script\disableCharacterMove.cs" />
     <Compile Include="Assets\ShopScene\Script\GenerateShopItems.cs" />
+    <Compile Include="Assets\ShopScene\Script\PurchaseStatus.cs" />
     <Compile Include="Assets\ShopScene\Script\TogglePanels.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Shune/Documents/Orbital Project/prototype 1/Homeodoro(1)/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
