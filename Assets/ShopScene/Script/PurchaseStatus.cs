@@ -12,8 +12,17 @@ public class PurchaseStatus : MonoBehaviour {
 
     void Start()
     {
-        path = Application.streamingAssetsPath + "/ShopItemStatus.json";
-        jsonString = File.ReadAllText(path);
+        path = Application.persistentDataPath + "/ShopItemStatus.json";
+      /*  if(System.IO.File.Exists(path))
+        {
+            jsonString = File.ReadAllText(path);
+        }
+        else
+        {*/
+            TextAsset data = Resources.Load("ShopItemStatus") as TextAsset;
+            jsonString = data.ToString();
+            Debug.Log("exists");
+        //} 
         shop = JsonUtility.FromJson<ShopItemStatus>(jsonString);
     }
 
@@ -37,6 +46,7 @@ public class PurchaseStatus : MonoBehaviour {
             shop.bottom.inventory[index].bought = true;
         if (Id.Contains("top"))
             shop.top.inventory[index].bought = true;
+        Save();
     }
 
     public bool CheckStatus(string Id, int index)
