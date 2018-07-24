@@ -43,6 +43,7 @@ public class FeatureManager : MonoBehaviour
         features[currFeature].SetColor(index2);
         SetSaveSetting();
         features[currFeature].renderer.color = colors[index2];
+        data.Save();
     }
 
     public Color Getcolor(int index)
@@ -59,6 +60,11 @@ public class FeatureManager : MonoBehaviour
     private void OnDisable()
     {
         // SaveFeature();
+        //data.Save();
+    }
+
+    private void OnApplicationQuit()
+    {
         data.Save();
         Debug.Log("character saved");
     }
@@ -147,6 +153,7 @@ public class FeatureManager : MonoBehaviour
             SetSaveSetting();
             features[currFeature].UpdateFeature();
         }
+        data.Save();
     }
 
     public void PreviousChoice()
@@ -166,6 +173,7 @@ public class FeatureManager : MonoBehaviour
             SetSaveSetting();
             features[currFeature].UpdateFeature();
         }
+        data.Save();
     }
 
     public void SetChoice(int index1)

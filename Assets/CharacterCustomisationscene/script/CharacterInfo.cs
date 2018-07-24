@@ -30,7 +30,8 @@ public class CharacterInfo : MonoBehaviour
 
     void Start()
     {
-        path = Application.persistentDataPath + "/CharacterFeatures.json";
+        path = Application.persistentDataPath + "/Characterdata.json";
+        Debug.Log(Application.persistentDataPath);
         if (System.IO.File.Exists(path))
         {
             jsonString = File.ReadAllText(path);
@@ -41,8 +42,8 @@ public class CharacterInfo : MonoBehaviour
 
     public void Save()
     {
+        path = Application.persistentDataPath + "/Characterdata.json";
         string newcharacter = JsonUtility.ToJson(character);
-        Debug.Log(newcharacter);
         File.WriteAllText(path, newcharacter);
         Debug.Log(newcharacter);
     }

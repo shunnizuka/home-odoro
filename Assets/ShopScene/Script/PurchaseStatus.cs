@@ -14,18 +14,18 @@ public class PurchaseStatus : MonoBehaviour
     void Start()
     {
         path = Application.persistentDataPath + "/ShopItemStatus.json";
-        /*if(System.IO.File.Exists(path))
+        if (System.IO.File.Exists(path))
         {
             jsonString = File.ReadAllText(path);
         }
         else
-        {*/
-        TextAsset data = Resources.Load("ShopItemStatus") as TextAsset;
-        jsonString = data.ToString();
-        Debug.Log("exists");
-        //} 
-        shop = JsonUtility.FromJson<ShopItemStatus>(jsonString);
-    }
+        {
+            TextAsset data = Resources.Load("ShopItemStatus") as TextAsset;
+            jsonString = data.ToString();
+            Debug.Log("exists");
+            } 
+            shop = JsonUtility.FromJson<ShopItemStatus>(jsonString);
+        }
 
     public void Save()
     {
