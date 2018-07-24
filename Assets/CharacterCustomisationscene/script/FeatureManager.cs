@@ -7,6 +7,7 @@ public class FeatureManager : MonoBehaviour
 {
     public List<Feature> features;
     public int currFeature;
+    public CharacterInfo data;
 
     //color options
     public Color black;
@@ -18,12 +19,13 @@ public class FeatureManager : MonoBehaviour
     public List<Color> colors;
     private int colorindex = 0;
 
-    public FeatureManager(List<Feature> featurelist, List<Color> colorlist)
+   /* public FeatureManager(List<Feature> featurelist, List<Color> colorlist)
     {
         features = featurelist;
         colors = colorlist;
     }
-       
+    */
+
     void InitialiseColor()
     {
         colors = new List<Color>();
@@ -39,6 +41,7 @@ public class FeatureManager : MonoBehaviour
     {
         colorindex = index2;
         features[currFeature].SetColor(index2);
+        SetSaveSetting();
         features[currFeature].renderer.color = colors[index2];
     }
 
@@ -49,22 +52,22 @@ public class FeatureManager : MonoBehaviour
 
     private void OnEnable()
     {
-        LoadFeature();
+       //LoadFeature();
+       //LoadcharFeatures();
     }
 
     private void OnDisable()
     {
-       SaveFeature();
+        // SaveFeature();
+        data.Save();
+        Debug.Log("character saved");
     }
 
-    private void OnApplicationQuit()
-    {
-        SaveFeature();
-    }
-
-    private void Start()
+    void Start()
     {
         LoadFeature();
+        LoadcharFeatures();
+        Debug.Log("game started");
     }
 
     public void LoadFeature()
@@ -74,40 +77,16 @@ public class FeatureManager : MonoBehaviour
         features.Add(new Feature("top", transform.Find("Top").GetComponent<SpriteRenderer>()));
         features.Add(new Feature("bottom", transform.Find("bottom").GetComponent<SpriteRenderer>()));
         InitialiseColor();
-
-       //features.Add(new Feature("shop_top", transform.Find("Top").GetComponent<SpriteRenderer>()));
-
-        for (int i = 0; i< features.Count; i++)
-        {
-            string key = "FEATURE_" + i;
-            string keycolor = "FEATURE_" + i + "color";
-            features[i].currIndex = PlayerPrefs.GetInt(key);
-            features[i].colorIndex = PlayerPrefs.GetInt(keycolor);
-            features[i].UpdateFeature();
-            features[i].renderer.color = colors[features[i].colorIndex];
-        }
     }
 
-    public void SaveFeature()
+    public void LoadcharFeatures()
     {
-        for (int i = 0; i < this.features.Count; i++)
-        {
-            string key = "FEATURE_" + i;
-            string keycolor = "FEATURE_" + i + "color";
-            PlayerPrefs.SetInt(key, features[i].currIndex);
-            PlayerPrefs.SetInt(keycolor, features[i].colorIndex);
-        }
-        PlayerPrefs.Save();
-    }
-
-    public void LoadFeaturepublic()
-    {
+        data.LoadFeatures();
+        Debug.Log(features.Count);
         for (int i = 0; i < features.Count; i++)
         {
-            string key = "FEATURE_" + i;
-            string keycolor = "FEATURE_" + i + "color";
-            features[i].currIndex = PlayerPrefs.GetInt(key);
-            features[i].colorIndex = PlayerPrefs.GetInt(keycolor);
+            features[i].currIndex = data.character.characterdata[i].FeatureIndex;
+            features[i].colorIndex = data.character.characterdata[i].ColorIndex;
             features[i].UpdateFeature();
             features[i].renderer.color = colors[features[i].colorIndex];
         }
@@ -120,6 +99,32 @@ public class FeatureManager : MonoBehaviour
             return;
         }
         currFeature = index;
+        Debug.Log(currFeature);
+    }
+
+    public void SetSaveSetting()
+    {
+        switch (currFeature)
+        {
+            case 0:
+                {
+                    data.character.SetHair(features[currFeature].currIndex, features[0].colorIndex);
+                    Debug.Log("hair saved = " + features[currFeature].currIndex);
+                    break;
+                }
+            case 1:
+                {
+                    data.character.SetTop(features[currFeature].currIndex, features[currFeature].colorIndex);
+                    Debug.Log("top saved = " + features[currFeature].currIndex);
+                    break;
+                }
+            case 2:
+                {
+                    data.character.SetBottom(features[currFeature].currIndex, features[currFeature].colorIndex);
+                    Debug.Log("bottom saved = " + features[currFeature].currIndex);
+                    break;
+                }
+        }
     }
 
     public void NextChoice()
@@ -128,20 +133,23 @@ public class FeatureManager : MonoBehaviour
             return;
 
         Debug.Log("Maxchoice = " + features[currFeature].Maxchoice());
+
         if (features[currFeature].currIndex >= features[currFeature].Maxchoice())
         {
             Debug.Log("exceeded choice");
             features[currFeature].currIndex = 0;
+            SetSaveSetting();
             features[currFeature].UpdateFeature();
         }
         else
         {
             features[currFeature].currIndex++;
+            SetSaveSetting();
             features[currFeature].UpdateFeature();
         }
     }
 
-    public void PreviousChoice ()
+    public void PreviousChoice()
     {
         if (features == null)
             return;
@@ -149,11 +157,13 @@ public class FeatureManager : MonoBehaviour
         if (features[currFeature].currIndex <= 0)
         {
             features[currFeature].currIndex = features[currFeature].Maxchoice();
+            SetSaveSetting();
             features[currFeature].UpdateFeature();
         }
         else
         {
             features[currFeature].currIndex--;
+            SetSaveSetting();
             features[currFeature].UpdateFeature();
         }
     }
@@ -176,7 +186,7 @@ public class Feature
     public SpriteRenderer renderer;
     public int colorIndex;
 
-    public void SetFeatureID (string id)
+    public void SetFeatureID(string id)
     {
         ID = id;
     }
@@ -184,20 +194,20 @@ public class Feature
     {
         ID = id;
         renderer = rend;
-       // UpdateFeature();
+        // UpdateFeature();
     }
 
-    public void UpdateFeature ()
+    public void UpdateFeature()
     {
         choices = Resources.LoadAll<Sprite>("Textures/" + ID);
-        Debug.Log("ID =" + ID);
+        //Debug.Log("ID =" + ID);
 
-        if(choices == null)
+        if (choices == null)
         {
             Debug.Log("no choices");
         }
 
-        if(choices == null || renderer == null)
+        if (choices == null || renderer == null)
         {
             return;
         }
@@ -207,11 +217,11 @@ public class Feature
             currIndex = choices.Length - 1;
         if (currIndex >= choices.Length)
             currIndex = 0;
-        
+
         renderer.sprite = choices[currIndex];
     }
 
-   public int Maxchoice()
+    public int Maxchoice()
     {
         if (ID.Contains("top"))
             return 0;

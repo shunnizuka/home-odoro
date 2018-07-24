@@ -51,8 +51,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4145272296679678}
-  - component: {fileID: 114236264902068476}
   - component: {fileID: 114800217560624944}
+  - component: {fileID: 114236264902068476}
   - component: {fileID: 50590741737641744}
   - component: {fileID: 114150108787911334}
   - component: {fileID: 212367636010967168}
@@ -103,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1592217254002732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.05, y: -2.15, z: 89.918045}
+  m_LocalPosition: {x: -1.05, y: -2.18, z: 89.918045}
   m_LocalScale: {x: 0.7634324, y: 0.7895222, z: 0.7895222}
   m_Children:
   - {fileID: 4884855744179012}
@@ -238,29 +238,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   features:
   - ID: hair
-    currIndex: 2
+    currIndex: 0
     choices:
     - {fileID: 21300000, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
     - {fileID: 21300002, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
     - {fileID: 21300004, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
     - {fileID: 21300006, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
     - {fileID: 21300008, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
+    - {fileID: 21300010, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
+    - {fileID: 21300012, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
+    - {fileID: 21300014, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
+    - {fileID: 21300016, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
+    - {fileID: 21300018, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
+    - {fileID: 21300020, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
     renderer: {fileID: 212147910808240198}
-    colorIndex: 5
+    colorIndex: 0
   - ID: top
     currIndex: 0
     choices:
     - {fileID: 21300000, guid: 7133e5fa60c3e194c942aeee4e14645f, type: 3}
+    - {fileID: 21300002, guid: 7133e5fa60c3e194c942aeee4e14645f, type: 3}
+    - {fileID: 21300004, guid: 7133e5fa60c3e194c942aeee4e14645f, type: 3}
+    - {fileID: 21300006, guid: 7133e5fa60c3e194c942aeee4e14645f, type: 3}
+    - {fileID: 21300010, guid: 7133e5fa60c3e194c942aeee4e14645f, type: 3}
     renderer: {fileID: 212921708982687552}
-    colorIndex: 2
+    colorIndex: 0
   - ID: bottom
-    currIndex: 1
+    currIndex: 0
     choices:
     - {fileID: 21300000, guid: 9d94978495f5b7f4188ecab1926c46ca, type: 3}
     - {fileID: 21300002, guid: 9d94978495f5b7f4188ecab1926c46ca, type: 3}
+    - {fileID: 21300004, guid: 9d94978495f5b7f4188ecab1926c46ca, type: 3}
+    - {fileID: 21300006, guid: 9d94978495f5b7f4188ecab1926c46ca, type: 3}
     renderer: {fileID: 212055891857674142}
     colorIndex: 0
   currFeature: 0
+  data: {fileID: 114800217560624944}
   black: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 1}
   yellow: {r: 0.95294124, g: 0.95294124, b: 0.4901961, a: 1}
   brown: {r: 0.8196079, g: 0.37647063, b: 0, a: 1}
@@ -285,6 +298,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484c01eb48e97244fa7470781b13d757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character:
+    characterdata:
+    - FeatureIndex: 0
+      ColorIndex: 0
+    - FeatureIndex: 0
+      ColorIndex: 0
+    - FeatureIndex: 0
+      ColorIndex: 0
+  path: 
   hair: {fileID: 1091907369079644}
   top: {fileID: 1594811076481540}
   bottom: {fileID: 1788021843101150}
@@ -323,7 +345,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300002, guid: 9d94978495f5b7f4188ecab1926c46ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d94978495f5b7f4188ecab1926c46ca, type: 3}
   m_Color: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -368,8 +390,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300004, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
-  m_Color: {r: 0.9058824, g: 0.5372549, b: 0.5568628, a: 1}
+  m_Sprite: {fileID: 21300000, guid: da9a7824653837e4ca8cfc261c918543, type: 3}
+  m_Color: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -504,7 +526,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 7133e5fa60c3e194c942aeee4e14645f, type: 3}
-  m_Color: {r: 0.8196079, g: 0.37647063, b: 0, a: 1}
+  m_Color: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

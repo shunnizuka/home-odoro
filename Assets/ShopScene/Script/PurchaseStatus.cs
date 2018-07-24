@@ -4,7 +4,8 @@ using System.IO;
 using UnityEngine;
 
 
-public class PurchaseStatus : MonoBehaviour {
+public class PurchaseStatus : MonoBehaviour
+{
 
     private ShopItemStatus shop;
     public string path;
@@ -13,22 +14,17 @@ public class PurchaseStatus : MonoBehaviour {
     void Start()
     {
         path = Application.persistentDataPath + "/ShopItemStatus.json";
-      /*  if(System.IO.File.Exists(path))
+        /*if(System.IO.File.Exists(path))
         {
             jsonString = File.ReadAllText(path);
         }
         else
         {*/
-            TextAsset data = Resources.Load("ShopItemStatus") as TextAsset;
-            jsonString = data.ToString();
-            Debug.Log("exists");
+        TextAsset data = Resources.Load("ShopItemStatus") as TextAsset;
+        jsonString = data.ToString();
+        Debug.Log("exists");
         //} 
         shop = JsonUtility.FromJson<ShopItemStatus>(jsonString);
-    }
-
-    public void Load() 
-    {
-        Debug.Log(shop.bottom.inventory[0].price);
     }
 
     public void Save()
@@ -40,7 +36,7 @@ public class PurchaseStatus : MonoBehaviour {
 
     public void Purchased(string Id, int index)
     {
-        if(Id.Contains("hair"))
+        if (Id.Contains("hair"))
             shop.hair.inventory[index].bought = true;
         if (Id.Contains("bottom"))
             shop.bottom.inventory[index].bought = true;
@@ -59,7 +55,6 @@ public class PurchaseStatus : MonoBehaviour {
             return shop.top.inventory[index].bought;
         return false;
     }
-
 }
 
 [System.Serializable]

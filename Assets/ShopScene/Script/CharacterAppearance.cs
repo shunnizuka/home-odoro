@@ -16,7 +16,6 @@ public class CharacterAppearance : MonoBehaviour
     public Button hair;
     public Button top;
     public Button bottom;
-    public Button dress;
 
     //wardrobe/shop button
     public Sprite wardrobeSprite;
@@ -29,35 +28,38 @@ public class CharacterAppearance : MonoBehaviour
     private void Start()
     {
         shopMgr = FindObjectOfType<FeatureManager>();
-        
+       /* 
         List<Feature> features = new List<Feature>();
         GameObject character = GameObject.Find("Character");
         features.Add(new Feature("top", character.transform.Find("Top").GetComponent<SpriteRenderer>()));
         features.Add(new Feature("bottom", character.transform.Find("bottom").GetComponent<SpriteRenderer>()));
         features.Add(new Feature("hair", character.transform.Find("hair").GetComponent<SpriteRenderer>()));
         shopMgr = new FeatureManager(features, shopMgr.colors);
-
-        InitialiseBtnlist();
+        */
+      //  InitialiseBtnlist();
     }
 
-    void InitialiseBtnlist()
+   /* void InitialiseBtnlist()
     {
         buttons = new List<Button>();
-        hair.onClick.AddListener(() => shopMgr.SetCurrent(2));
+        hair.onClick.AddListener(() => shopMgr.SetCurrent(0));
         buttons.Add(hair);
-        top.onClick.AddListener(() => shopMgr.SetCurrent(0));
+        top.onClick.AddListener(() => shopMgr.SetCurrent(1));
         buttons.Add(top);
-        bottom.onClick.AddListener(() => shopMgr.SetCurrent(1));
+        bottom.onClick.AddListener(() => shopMgr.SetCurrent(2));
         buttons.Add(bottom);
     }
-
+    */
     public void UpdateChoice(int index)
     {
         shopMgr.SetChoice(index);
+        //save the changes made from trying on clothes in wardrobe but not shop
+        if (!atShop)
+            shopMgr.SetSaveSetting();
         Debug.Log("choice updated to = " + index);
         
         //set color to white, excluding the hair
-        if (shopMgr.currFeature != 2)
+        if (shopMgr.currFeature != 0)
         {
             shopMgr.features[shopMgr.currFeature].renderer.color = Color.white;
         }
@@ -76,7 +78,7 @@ public class CharacterAppearance : MonoBehaviour
 
     private void Update()
     {
-        EventSystem.current.SetSelectedGameObject(buttons[shopMgr.currFeature].gameObject);
+        //EventSystem.current.SetSelectedGameObject(buttons[shopMgr.currFeature].gameObject);
     }
 
     public void ToggleWardrobeBtn()
@@ -88,7 +90,7 @@ public class CharacterAppearance : MonoBehaviour
             buttonText.text = "Wardrobe";
             generate.SetFeatureID(shopMgr.features[shopMgr.currFeature].ID);
             generate.GenerateItems();
-            if (shopMgr.currFeature == 2)
+            if (shopMgr.currFeature == 0)
             {
                 generate.OpenColourPanelHair();
                 Debug.Log("called opencolor");
@@ -102,7 +104,7 @@ public class CharacterAppearance : MonoBehaviour
             buttonText.text = "Shop";
             generate.SetFeatureID(shopMgr.features[shopMgr.currFeature].ID);
             generate.GenerateItems();
-            if (shopMgr.currFeature == 2)
+            if (shopMgr.currFeature == 0)
             {
                 generate.OpenColourPanelHair();
                 Debug.Log("called opencolor");
@@ -114,18 +116,8 @@ public class CharacterAppearance : MonoBehaviour
 
     public void Save()
     {
-        shopMgr.SaveFeature();
+      //  shopMgr.SaveFeature();
     }
-
-   /* public void UpdateShopOrWardrobe (string id)
-    {
-        for (int i = 0; i < shopMgr.features.Count; i++)
-        {
-            shopMgr.features[i].SetFeatureID(id + shopMgr.features[i].ID);
-            Debug.Log("ID " + shopMgr.features[i].ID);
-        }
-    }
-    */
 
     public void SetIDforItems ()
     {
@@ -141,6 +133,6 @@ public class CharacterAppearance : MonoBehaviour
     public void GoBackHouse()
     {
         SceneManager.LoadScene(1);
-        //Debug.Log("count" + wardrobe.features.Count);
+        shopMgr.LoadcharFeatures();
     }
 }
