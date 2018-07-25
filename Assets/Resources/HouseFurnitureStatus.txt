@@ -1,0 +1,44 @@
+{"floor":
+	{"furniturelist":[
+
+		{"bought" : true, "price" : 0.0},
+		{"bought":false,"price":1.0},		
+		{"bought":false,"price":1.0},
+		{"bought":false,"price":1.0},
+		{"bought":false,"price":1.0},
+		{"bought":false,"price":1.0},
+		{"bought":false,"price":1.0}
+		]},
+
+	"wall":
+		{"furniturelist":[
+	
+			{"bought" : true, "price" : 0.0},
+			{"bought" : false, "price" : 1.0},
+			{"bought" : false, "price" : 1.0},
+			{"bought" : false, "price" : 1.0},
+			{"bought" : false, "price" : 1.0},
+			{"bought" : false, "price" : 1.0},
+			{"bought":false,"price":2.0},
+			{"bought":false,"price":1.0}]},
+	"desk":
+		{"furniturelist":[
+			
+			{"bought":true,"price":0.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0}]},
+
+	"bed":
+		{"furniturelist":[
+			
+			{"bought":true,"price":0.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0},
+			{"bought":false,"price":1.0}]}
+			

@@ -202,7 +202,7 @@ public class Feature
     {
         ID = id;
         renderer = rend;
-        // UpdateFeature();
+        //UpdateFeature();
     }
 
     public void UpdateFeature()
