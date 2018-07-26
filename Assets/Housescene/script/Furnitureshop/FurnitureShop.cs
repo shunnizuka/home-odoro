@@ -12,6 +12,7 @@ public class FurnitureShop : MonoBehaviour {
     //to generate the shop items
     public Sprite[] items;
     public GameObject Shopitem;
+    public GameObject Inventoryitem;
     public GameObject panel;
     private GameObject oldpanel;
 
@@ -20,7 +21,10 @@ public class FurnitureShop : MonoBehaviour {
     public Text buttontext;
     public Sprite shop;
     public Sprite inventory;
-    
+
+    //furniture data
+    public FurniturePurchaseStatus furnitureStatus;
+
 	// Use this for initialization
 	void Start () {
         houseMgr = FindObjectOfType<HouseManager>();
@@ -30,6 +34,11 @@ public class FurnitureShop : MonoBehaviour {
     {
         houseMgr.SetFurnitureChoice(index);
         //to save data when not at shop
+        if(!atShop)
+        {
+            houseMgr.house.Setdata(houseMgr.currFurniture, houseMgr.Furnitures[houseMgr.currFurniture].currIndex);
+            Debug.Log("house saved " + houseMgr.Furnitures[houseMgr.currFurniture].ID + houseMgr.Furnitures[houseMgr.currFurniture].currIndex);
+        }
     }
 
     public void GenerateFurnitureItems()
@@ -56,11 +65,33 @@ public class FurnitureShop : MonoBehaviour {
 
         for (int i = 0; i < items.Length; i++)
         {
-            int index = i;
-            GameObject newitem = Instantiate(Shopitem) as GameObject;
-            newitem.transform.Find("furniturebtn").GetComponent<Image>().sprite = items[i];
-            newitem.transform.Find("furniturebtn").GetComponent<Button>().onClick.AddListener(() => UpdateFurnitureChoice(index));
-            newitem.transform.SetParent(newpanel.transform, false);
+            //to generate shopitems that are not bought
+            if (atShop && !furnitureStatus.CheckStatus(houseMgr.Furnitures[houseMgr.currFurniture].ID, i)) {
+                int index = i;
+                GameObject newitem = Instantiate(Shopitem) as GameObject;
+                newitem.transform.Find("furniturebtn").GetComponent<Image>().sprite = items[i];
+                newitem.transform.Find("furniturebtn").GetComponent<Button>().onClick.AddListener(() => UpdateFurnitureChoice(index));
+                newitem.transform.Find("BuyButton").GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    Destroy(newitem);
+                    furnitureStatus.Purchased(houseMgr.Furnitures[houseMgr.currFurniture].ID, index);
+                    houseMgr.house.Setdata(houseMgr.currFurniture, houseMgr.Furnitures[houseMgr.currFurniture].currIndex);
+
+                });
+                newitem.transform.Find("price").GetComponent<Text>().text = furnitureStatus.GetPrice(houseMgr.Furnitures[houseMgr.currFurniture].ID, index).ToString() + " Hr";
+
+                newitem.transform.SetParent(newpanel.transform, false);
+            }
+
+            if (!atShop && furnitureStatus.CheckStatus(houseMgr.Furnitures[houseMgr.currFurniture].ID, i)) {
+                int index = i;
+                GameObject newitem = Instantiate(Inventoryitem) as GameObject;
+                newitem.transform.Find("furniturebtn").GetComponent<Image>().sprite = items[i];
+                newitem.transform.Find("furniturebtn").GetComponent<Button>().onClick.AddListener(() => UpdateFurnitureChoice(index));
+
+                newitem.transform.SetParent(newpanel.transform, false);
+            }
+
         }
         Debug.Log("items created");
         oldpanel = newpanel;
@@ -73,11 +104,13 @@ public class FurnitureShop : MonoBehaviour {
         {
             shopbtn.image.sprite = inventory;
             buttontext.text = "Inventory";
+            GenerateFurnitureItems();
         }
         else
         {
             shopbtn.image.sprite = shop;
-            buttontext.text = "More Furniture";
+            buttontext.text = "Shop";
+            GenerateFurnitureItems();
         }
     }
 }
