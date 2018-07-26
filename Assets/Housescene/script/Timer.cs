@@ -87,7 +87,6 @@ public class Timer : MonoBehaviour {
         if (isTask) {
             datatime.Updatehour(totaltime);
             datatime.DisplayTotaltimeText();
-
         }
     }
 

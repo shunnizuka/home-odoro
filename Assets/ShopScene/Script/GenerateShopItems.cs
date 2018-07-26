@@ -12,6 +12,7 @@ public class GenerateShopItems : MonoBehaviour {
     public GameObject Wardrobeitem;
     public GameObject panel;
     public GameObject colorPanel;
+    public GameObject InsufficientHr;
 
     public List<GameObject> hairbtns;
     private GameObject oldpanel;
@@ -20,10 +21,11 @@ public class GenerateShopItems : MonoBehaviour {
 
     public CharacterAppearance appearance;
     public PurchaseStatus status;
+    public Data HoursAccumulated;
 
     // Use this for initialization
 	void Start () {
-		
+        HoursAccumulated = FindObjectOfType<Data>();
 	}
 	
     public void SetFeatureID (string id)
@@ -70,9 +72,10 @@ public class GenerateShopItems : MonoBehaviour {
 
                 newitem.transform.Find("BuyButton").GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    Destroy(newitem);
-                    status.Purchased(FeatureId, index);
+                    BuyItem(status.GetPrice(FeatureId, index), index, newitem);
                 });
+
+                newitem.transform.Find("Text").GetComponent<Text>().text = status.GetPrice(FeatureId, index).ToString("0.00") + " Hr";
                 newitem.transform.SetParent(newpanel.transform, false);
 
                 //collate and initialise the color (only for hair button)
@@ -103,6 +106,26 @@ public class GenerateShopItems : MonoBehaviour {
         }
         Debug.Log("items created");
         oldpanel = newpanel;
+    }
+
+    public void BuyItem(float price, int index, GameObject item)
+    {
+        if (HoursAccumulated.SufficientHours(price))
+        {
+            Destroy(item);
+            status.Purchased(FeatureId, index);
+            HoursAccumulated.DeductHrs(price);
+        }
+        else
+        {
+            Debug.Log("Not enough hours");
+            InsufficientHr.SetActive(true);
+        }
+    }
+
+    public void CloseInsufficientHrPanel ()
+    {
+        InsufficientHr.SetActive(false);
     }
 
     public void OpenColourPanelHair()

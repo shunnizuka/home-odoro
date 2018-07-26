@@ -15,7 +15,7 @@ public class SaveBreakInput : MonoBehaviour
         //things needed to instantiate
         public GameObject canvas;
         public GameObject button;
-        public Scroll_View scroll;
+        public TaskButtons scroll;
 
         //for Task input field
         public void GetTaskInput(string activity)

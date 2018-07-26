@@ -22,12 +22,18 @@ public class FurnitureShop : MonoBehaviour {
     public Sprite shop;
     public Sprite inventory;
 
+    public GameObject insufficientHr;
+
     //furniture data
     public FurniturePurchaseStatus furnitureStatus;
+
+    //number of hours
+    public Data HoursAccumulated;
 
 	// Use this for initialization
 	void Start () {
         houseMgr = FindObjectOfType<HouseManager>();
+        HoursAccumulated = FindObjectOfType<Data>();
 	}
 	
     public void UpdateFurnitureChoice(int index)
@@ -73,12 +79,9 @@ public class FurnitureShop : MonoBehaviour {
                 newitem.transform.Find("furniturebtn").GetComponent<Button>().onClick.AddListener(() => UpdateFurnitureChoice(index));
                 newitem.transform.Find("BuyButton").GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    Destroy(newitem);
-                    furnitureStatus.Purchased(houseMgr.Furnitures[houseMgr.currFurniture].ID, index);
-                    houseMgr.house.Setdata(houseMgr.currFurniture, houseMgr.Furnitures[houseMgr.currFurniture].currIndex);
-
+                    BuyItem(furnitureStatus.GetPrice(houseMgr.Furnitures[houseMgr.currFurniture].ID, index), index, newitem);
                 });
-                newitem.transform.Find("price").GetComponent<Text>().text = furnitureStatus.GetPrice(houseMgr.Furnitures[houseMgr.currFurniture].ID, index).ToString() + " Hr";
+                newitem.transform.Find("price").GetComponent<Text>().text = furnitureStatus.GetPrice(houseMgr.Furnitures[houseMgr.currFurniture].ID, index).ToString("0.00") + " Hr";
 
                 newitem.transform.SetParent(newpanel.transform, false);
             }
@@ -95,6 +98,22 @@ public class FurnitureShop : MonoBehaviour {
         }
         Debug.Log("items created");
         oldpanel = newpanel;
+    }
+
+    public void BuyItem(float price, int index, GameObject item)
+    {
+        if (HoursAccumulated.SufficientHours(price))
+        {
+            furnitureStatus.Purchased(houseMgr.Furnitures[houseMgr.currFurniture].ID, index);
+            houseMgr.house.Setdata(houseMgr.currFurniture, houseMgr.Furnitures[houseMgr.currFurniture].currIndex);
+            HoursAccumulated.DeductHrs(price);
+            Destroy(item);
+        }
+        else
+        {
+            Debug.Log("Not enough hours");
+            insufficientHr.SetActive(true);
+        }
     }
 
     public void ToggleInventoryBtn()
