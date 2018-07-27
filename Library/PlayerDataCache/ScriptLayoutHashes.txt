@@ -6,7 +6,7 @@ Assets/CharacterCustomisation.unity
 Assets/HouseScene.unity
 Assets/ShopScene.unity
 SceneListEnd?
-28144fc234708003731dabfd1b4f44bf Assembly-CSharp.dll:.Scroll_View
+28144fc234708003731dabfd1b4f44bf Assembly-CSharp.dll:.TaskButtons
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 13bdb7c23815c33a33b37b0ba8dd39be UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -19,7 +19,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 607d64d2c4bc76ac9876e6f7b9cc7edf UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-bf0fde45eeb0c3d1d4c94608e78acb30 Assembly-CSharp.dll:.SaveBreakInput
+b4b97990ca836a06920011cff19fea3c Assembly-CSharp.dll:.SaveBreakInput
 9381a23957b02d47465b3a134c80d375 Assembly-CSharp.dll:.GenerateShopItems
 ed56ff46e1a69e2e8d0cd30e1587a587 Assembly-CSharp.dll:.changescene
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -113,7 +113,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-512911291d6c4066c5f7d83603f3c725 Assembly-CSharp.dll:.SaveTaskInput
+059a13cab7f878f75a85b5f29db02506 Assembly-CSharp.dll:.SaveTaskInput
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TaskButtonSetupTimer
 9e8fe3e9f9be36581c1095514d197ef4 Assembly-CSharp.dll:.Timer
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
@@ -168,5 +168,5 @@ c701f606ed86578b500933efa1e42020 Assembly-CSharp.dll:.CharacterInfo
 c84079fc27542f1822c51abde1362ab6 Assembly-CSharp.dll:.FurnitureShop
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.disableCharacterMove
 fdee23940f134bc0b4083b232045a5e3 Assembly-CSharp.dll:.Data
-898179d98e9f807cd96298fb526a02a8 Assembly-CSharp.dll:.CharacterAppearance
+6f965489af48a01b8322e789008c1c82 Assembly-CSharp.dll:.CharacterAppearance
 c62e2f8cb4d490e8f6f6e94043d209a8 Assembly-CSharp.dll:.FurniturePurchaseStatus

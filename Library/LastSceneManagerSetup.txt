@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< Updated upstream
 - path: Assets/ProgressChartScene.unity
+=======
+- path: Assets/HouseScene.unity
+>>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1

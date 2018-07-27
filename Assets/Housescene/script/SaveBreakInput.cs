@@ -38,7 +38,7 @@ public class SaveBreakInput : MonoBehaviour
             if (newActivity != "")
             {
                 Debug.Log("instruct make button");
-                scroll.MakeButton(newActivity, hours, canvas);
+                scroll.MakeTaskButton(newActivity, hours);
                 breakInput.text = "";
                 timeInput.text = "";
                 newActivity = "";

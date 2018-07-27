@@ -36,7 +36,7 @@ public class SaveTaskInput : MonoBehaviour
     {
         if (newTask != "")
         {
-            scroll.MakeButton(newTask, hours, canvas);
+            scroll.MakeTaskButton(newTask, hours);
             taskInput.text = "";
             timeInput.text = "";
             newTask = "";
