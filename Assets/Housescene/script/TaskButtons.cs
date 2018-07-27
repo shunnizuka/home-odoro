@@ -7,10 +7,9 @@ using UnityEngine.UI;
 public class TaskButtons : MonoBehaviour {
 
     public GameObject Button;
+    private List<GameObject> buttonList;
  
     //variables to make button
-    private string task;
-    private float time;
     public GameObject field;
 
     //data stuff
@@ -20,12 +19,14 @@ public class TaskButtons : MonoBehaviour {
 
     private void Start()
     {
+        buttonList = new List<GameObject>();
         path = Application.persistentDataPath + "/ListOfTask.json";
         if(System.IO.File.Exists(path))
         {
             jsonString = File.ReadAllText(path);
             tasks = JsonUtility.FromJson<ListofTask>(jsonString);
             Debug.Log("Task file exists" + jsonString);
+            LoadButtons();
         }
         else
         {
@@ -50,20 +51,31 @@ public class TaskButtons : MonoBehaviour {
 
     public void AddNewTask (string newTask, float hour)
     {
-        Task newtask = new Task(newTask, hour);
+        
+        Task newtask = new Task(newTask, hour, false);
         tasks.taskList.Add(newtask);
         Save();
         MakeTaskButton(newTask, hour);
     }
 
     public void MakeTaskButton(string newTask, float hours)
-    { 
+    {
         GameObject newButton = Instantiate(Button) as GameObject;
         newButton.transform.Find("Text").GetComponentInChildren<Text>().text = newTask.ToUpper();
-        newButton.transform.Find("hour").GetComponentInChildren<Text>().text = "Time: " + hours + " hours    ";
+        newButton.transform.Find("hour").GetComponentInChildren<Text>().text = "Time: " + hours + " hours   ";
         newButton.transform.SetParent(field.transform, false);
+        buttonList.Add(newButton);
 
-        Debug.Log("Entered" + task + "display and button made");
+        Debug.Log("Entered" + newTask + "display and button made");
+    }
+
+    public void DestroyTask(GameObject taskToDestroy)
+    {
+        int index = buttonList.IndexOf(taskToDestroy);
+        buttonList.Remove(taskToDestroy);
+        tasks.taskList.RemoveAt(index);
+        Save();
+        Debug.Log("task Removed");
     }
 }
 
@@ -78,11 +90,13 @@ public class Task
 {
     public string taskInfo;
     public float time;
+    public bool destroyed;
 
-    public Task (string info, float hr)
+    public Task (string info, float hr, bool destroy)
     {
         taskInfo = info;
         time = hr;
+        destroyed = destroy;
     }
 
 }

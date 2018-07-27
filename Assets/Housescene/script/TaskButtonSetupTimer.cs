@@ -35,9 +35,15 @@ public class TaskButtonSetupTimer : MonoBehaviour
     }
     
     // destroy/ strike off task when task is done
-    public void DestroyTask()
+    public void DestroyTask(bool destroy)
     {
+        if (destroy)
+            Destroy(gameObject);
+    }
 
+    public GameObject GetTaskitem()
+    {
+        return gameObject;
     }
 
 }

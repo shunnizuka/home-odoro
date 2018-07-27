@@ -23,9 +23,15 @@ public class Timer : MonoBehaviour {
     //data to update
     public Data datatime;
 
+    public TaskButtonSetupTimer buttonTask;
+    public TaskButtons buttonList;
+ 
+
     //initialise the timer to countdown
     public void SetTime(float time)
     {
+        buttonTask = FindObjectOfType<TaskButtonSetupTimer>();
+        
         //setup the panel
         paused = true;
         pauseButton.image.sprite = playSprite;
@@ -94,6 +100,9 @@ public class Timer : MonoBehaviour {
     {
         timerendedPanel.SetActive(false);
         this.gameObject.SetActive(false);
+        buttonList.DestroyTask(buttonTask.GetTaskitem());
+        buttonTask.DestroyTask(true);
+
         Debug.Log("close timer panel");
     }
 

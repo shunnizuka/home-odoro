@@ -708,6 +708,8 @@ MonoBehaviour:
   pauseButton: {fileID: 346550802}
   timerendedPanel: {fileID: 1583405268}
   datatime: {fileID: 1688728871}
+  buttonTask: {fileID: 0}
+  buttonList: {fileID: 1487924742}
 --- !u!1 &156616235
 GameObject:
   m_ObjectHideFlags: 0
