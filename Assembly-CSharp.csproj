@@ -75,7 +75,7 @@
     <Compile Include="Assets\Housescene\script\PlayerController.cs" />
     <Compile Include="Assets\Housescene\script\SaveBreakInput.cs" />
     <Compile Include="Assets\Housescene\script\SaveTaskInput.cs" />
-    <Compile Include="Assets\Housescene\script\Scroll_View.cs" />
+    <Compile Include="Assets\Housescene\script\TaskButtons.cs" />
     <Compile Include="Assets\Housescene\script\TaskButtonSetupTimer.cs" />
     <Compile Include="Assets\Housescene\script\Timer.cs" />
     <Compile Include="Assets\ProgressChart\scripts\Bar.cs" />

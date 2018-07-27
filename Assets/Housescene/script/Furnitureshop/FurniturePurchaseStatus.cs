@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FurniturePurchaseStatus : MonoBehaviour {
 
-    private HouseFurnitureStatus houseStatus;
+    public HouseFurnitureStatus houseStatus;
     public string path;
     string jsonString;
 
@@ -56,6 +56,19 @@ public class FurniturePurchaseStatus : MonoBehaviour {
         if (Id.Contains("bed"))
             return houseStatus.bed.furniturelist[index].bought;
         return false;
+    }
+
+    public float GetPrice (string Id, int index)
+    {
+        if (Id.Contains("floor"))
+            return houseStatus.floor.furniturelist[index].price;
+        if (Id.Contains("Wall"))
+            return houseStatus.wall.furniturelist[index].price;
+        if (Id.Contains("desk"))
+            return houseStatus.desk.furniturelist[index].price;
+        if (Id.Contains("bed"))
+            return houseStatus.bed.furniturelist[index].price;
+        return 0;
     }
 }
 

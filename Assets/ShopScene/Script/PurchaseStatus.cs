@@ -55,6 +55,17 @@ public class PurchaseStatus : MonoBehaviour
             return shop.top.inventory[index].bought;
         return false;
     }
+
+    public float GetPrice(string Id, int index)
+    {
+        if (Id.Contains("hair"))
+            return shop.hair.inventory[index].price;
+        if (Id.Contains("bottom"))
+            return shop.bottom.inventory[index].price;
+        if (Id.Contains("top"))
+            return shop.top.inventory[index].price;
+        return 0;
+    }
 }
 
 [System.Serializable]

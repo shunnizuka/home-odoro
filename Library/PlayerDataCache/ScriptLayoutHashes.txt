@@ -20,8 +20,8 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 607d64d2c4bc76ac9876e6f7b9cc7edf UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 bf0fde45eeb0c3d1d4c94608e78acb30 Assembly-CSharp.dll:.SaveBreakInput
-2fbb449f7333cf21df250639765e7aab Assembly-CSharp.dll:.GenerateShopItems
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.changescene
+9381a23957b02d47465b3a134c80d375 Assembly-CSharp.dll:.GenerateShopItems
+ed56ff46e1a69e2e8d0cd30e1587a587 Assembly-CSharp.dll:.changescene
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -118,6 +118,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 9e8fe3e9f9be36581c1095514d197ef4 Assembly-CSharp.dll:.Timer
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
+52d5eaea98084c8d99e1f4bc94be2d4e Assembly-CSharp.dll:.HouseManager
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -164,6 +165,8 @@ c701f606ed86578b500933efa1e42020 Assembly-CSharp.dll:.CharacterInfo
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 175c78ae04dd65915722c3b99c8b9ad3 Assembly-CSharp.dll:.PlayerController
 2dd03042bec60dbbc91cefafba567ea7 Assembly-CSharp.dll:.OpenPlannerPanel
+c84079fc27542f1822c51abde1362ab6 Assembly-CSharp.dll:.FurnitureShop
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.disableCharacterMove
-e9e9dff7a8581a97b570be1b9ea0de39 Assembly-CSharp.dll:.Data
-6f965489af48a01b8322e789008c1c82 Assembly-CSharp.dll:.CharacterAppearance
+fdee23940f134bc0b4083b232045a5e3 Assembly-CSharp.dll:.Data
+898179d98e9f807cd96298fb526a02a8 Assembly-CSharp.dll:.CharacterAppearance
+c62e2f8cb4d490e8f6f6e94043d209a8 Assembly-CSharp.dll:.FurniturePurchaseStatus

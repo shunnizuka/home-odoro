@@ -41,4 +41,6 @@
 			{"bought":false,"price":1.0},
 			{"bought":false,"price":1.0},
 			{"bought":false,"price":1.0}]}
+
+		}
 			
