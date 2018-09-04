@@ -9,13 +9,13 @@ public class Scenemanager : MonoBehaviour {
 
 	public void GotoHouse()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         character.GetComponent<Rigidbody2D>().simulated = true;
     }
 
     public void GotoShop( )
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
 }

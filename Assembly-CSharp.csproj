@@ -63,6 +63,7 @@
     <Compile Include="Assets\CharacterCustomisationscene\script\FeatureManager.cs" />
     <Compile Include="Assets\CharacterCustomisationscene\script\Scenemanager.cs" />
     <Compile Include="Assets\CharacterCustomisationscene\script\UIManager.cs" />
+    <Compile Include="Assets\Housescene\script\BreakButton.cs" />
     <Compile Include="Assets\Housescene\script\changescene.cs" />
     <Compile Include="Assets\Housescene\script\Data.cs" />
     <Compile Include="Assets\Housescene\script\DonotDestroyHours.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\ShopScene\Script\disableCharacterMove.cs" />
     <Compile Include="Assets\ShopScene\Script\GenerateShopItems.cs" />
     <Compile Include="Assets\ShopScene\Script\PurchaseStatus.cs" />
+    <Compile Include="Assets\StartBtnscript.cs" />
     <None Include="Assets\Resources\ShopItemStatus.txt" />
     <None Include="Assets\Resources\HouseFurnitureStatus.txt" />
     <Reference Include="UnityEditor.StandardEvents">

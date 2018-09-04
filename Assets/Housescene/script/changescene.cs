@@ -21,7 +21,7 @@ public class changescene : MonoBehaviour {
     }
     public void change()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void OpenFurnitureShop()

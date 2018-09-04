@@ -15,7 +15,7 @@ public class SaveBreakInput : MonoBehaviour
         //things needed to instantiate
         public GameObject canvas;
         public GameObject button;
-        public TaskButtons scroll;
+        public BreakButton scroll;
 
         //for Task input field
         public void GetTaskInput(string activity)
@@ -38,7 +38,7 @@ public class SaveBreakInput : MonoBehaviour
             if (newActivity != "")
             {
                 Debug.Log("instruct make button");
-                scroll.MakeTaskButton(newActivity, hours);
+                scroll.MakeButton(newActivity, hours, canvas);
                 breakInput.text = "";
                 timeInput.text = "";
                 newActivity = "";

@@ -29,7 +29,7 @@ public class Data : MonoBehaviour {
             Debug.Log("Hour file exists" + jsonString);
         }
         else
-            timeData = new HourData(3);
+            timeData = new HourData(5);
     }
 
     public void Save()

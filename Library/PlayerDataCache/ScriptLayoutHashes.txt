@@ -2,6 +2,7 @@ Android
 PlayerPath?
 C:/Users/Shune/Documents/Orbital Project/prototype 1/Homeodoro(1)/Homeodoro(1).apk
 SceneListBegin?
+Assets/WelcomeScene.unity
 Assets/CharacterCustomisation.unity
 Assets/HouseScene.unity
 Assets/ShopScene.unity
@@ -86,6 +87,7 @@ c63db43c730fa2cbb8ca07de15898cb6 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.BarChart
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 13bdb7c23815c33a33b37b0ba8dd39be UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -126,6 +128,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 3e6a37e46f4fe96854d3ee601033ae01 Assembly-CSharp.dll:.PurchaseStatus
 939871c0c7b2a577a9b088d559023ea5 Assembly-CSharp.dll:.OpenBreakPanel
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Bar
 33227001ac3cb2e0369b605ca6cae863 Assembly-CSharp.dll:.Scenemanager
 8f8c023f294d21221083062d5a287ba3 Assembly-CSharp.dll:.UIManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DonotDestroyHours
@@ -170,5 +173,4 @@ c84079fc27542f1822c51abde1362ab6 Assembly-CSharp.dll:.FurnitureShop
 fdee23940f134bc0b4083b232045a5e3 Assembly-CSharp.dll:.Data
 6f965489af48a01b8322e789008c1c82 Assembly-CSharp.dll:.CharacterAppearance
 c62e2f8cb4d490e8f6f6e94043d209a8 Assembly-CSharp.dll:.FurniturePurchaseStatus
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Bar
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.BarChart
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StartBtnscript
